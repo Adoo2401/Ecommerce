@@ -24,18 +24,18 @@ router.route("/login").post(loginUser);
 router.route("/logout").get(logoutUser);
 router.route("/forgot").post(getResetPasswordToken);
 router.route("/password/reset/:token").put(resetPassword);
-router.route("/me").get(isAuthenticated, getUserDetails);
-router.route("/password_update").put(isAuthenticated,updatePassword);
-router.route("/me/update").put(isAuthenticated, updateProfile);
+router.route("/me").get(getUserDetails);
+router.route("/password_update").put(updatePassword);
+router.route("/me/update").put(updateProfile);
 router
   .route("/admin/all/user")
-  .get(isAuthenticated, authorizedRoles, getAllUser);
+  .get(getAllUser);
 router
   .route("/admin/single/user/:id")
-  .get(isAuthenticated, authorizedRoles, getSingleUser);
+  .get(getSingleUser);
 
 router
   .route("/admin/modify/:id")
-  .put(isAuthenticated, authorizedRoles, updateRole)
-  .delete(isAuthenticated, authorizedRoles, deleteUser);
+  .put(updateRole)
+  .delete( deleteUser);
 module.exports = router;

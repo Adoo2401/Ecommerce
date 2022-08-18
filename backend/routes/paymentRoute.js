@@ -7,8 +7,8 @@ const isAuthenticated=require("../middlewares/auth")
 
 
 
-router.route("/payment/process").post(isAuthenticated,proccessPayment)
-router.route("/stripeapikey").get(isAuthenticated,sendStripeAPIKey);
+router.route("/payment/process").post(proccessPayment)
+router.route("/stripeapikey").get(sendStripeAPIKey);
 
 
 

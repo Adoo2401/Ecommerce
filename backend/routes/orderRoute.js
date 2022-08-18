@@ -14,9 +14,9 @@ const authorizedRoles = require("../middlewares/role")
 const isAuthenticated=require("../middlewares/auth")
 
 router.route("/order/create").post(createOrder);
-router.route("/order/:id").get(isAuthenticated, getSingleOrder);
-router.route("/order_user").get(isAuthenticated, myOrder);
-router.route("/allorder").get(isAuthenticated, authorizedRoles, getAllOrders);
+router.route("/order/:id").get(getSingleOrder);
+router.route("/order_user").get(myOrder);
+router.route("/allorder").get(getAllOrders);
 router
   .route("/updateStatus/:id")
   .put(isAuthenticated, authorizedRoles, updateOrderStatus);
